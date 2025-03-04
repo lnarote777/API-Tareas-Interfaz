@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.api_tareas.R
 import com.example.api_tareas.componentes.Header
+import com.example.api_tareas.navigation.AppScreen
 
 @Composable
 fun PerfilScreen(navController: NavController, user: String?){
@@ -69,7 +70,7 @@ fun PerfilScreen(navController: NavController, user: String?){
 
             Text("Cerrar sesión",
                 color = Color.Red,
-                modifier = Modifier.padding(20.dp)
+                modifier = Modifier.padding(20.dp).clickable { navController.navigate(route = AppScreen.PortadaScreen.route) }
             )
 
             Text("Eliminar cuenta",

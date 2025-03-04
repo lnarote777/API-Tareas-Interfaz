@@ -23,22 +23,22 @@ class TareaViewModel: ViewModel() {
 
 
     fun obtenerTareas(token: String) {
-            viewModelScope.launch {
-                _loading.value = true
-                try {
-                    val response = API.retrofitService.getTareas("Bearer $token")
-                    if (response.isSuccessful) {
-                        val tasks = response.body() ?: emptyList()
-                        _tareas.value = tasks // Asignar tareas solo si no estaban cargadas
-                    } else {
-                        _error.value = "Error al obtener las tareas."
-                    }
-                } catch (e: Exception) {
-                    _error.value = "Error al obtener las tareas: ${e.message}"
-                } finally {
-                    _loading.value = false
+        viewModelScope.launch {
+            _loading.value = true
+            try {
+                val response = API.retrofitService.getTareas("Bearer $token")
+                if (response.isSuccessful) {
+                    val tasks = response.body() ?: emptyList()
+                    _tareas.value = tasks // Asignar tareas solo si no estaban cargadas
+                } else {
+                    _error.value = "Error al obtener las tareas."
                 }
+            } catch (e: Exception) {
+                _error.value = "Error al obtener las tareas: ${e.message}"
+            } finally {
+                _loading.value = false
             }
+        }
 
     }
 

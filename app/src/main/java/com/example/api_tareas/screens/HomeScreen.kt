@@ -43,7 +43,7 @@ import com.example.api_tareas.viewModel.TareaViewModel
 import kotlinx.coroutines.launch
 
 @Composable
-fun HomeScreen(navController: NavController, user: String?, token: String, viewModel: TareaViewModel = viewModel()){
+fun HomeScreen(navController: NavController, user: String?, userRol: String?, token: String, viewModel: TareaViewModel = viewModel()){
     val tareas = viewModel.tareas
     val loading by viewModel.loading
     val error by viewModel.error
@@ -93,7 +93,7 @@ fun HomeScreen(navController: NavController, user: String?, token: String, viewM
 
         FloatingActionButton(
             onClick = { showAddDialog = true },
-            modifier = Modifier.padding(16.dp).align(alignment = AbsoluteAlignment.Right)
+            modifier = Modifier.padding(16.dp).align(alignment = Alignment.End)
 
         ) {
             Icon(Icons.Filled.Add, contentDescription = "Añadir tarea")
@@ -102,14 +102,18 @@ fun HomeScreen(navController: NavController, user: String?, token: String, viewM
         AddTarea(
             showDialog = showAddDialog,
             onDismiss = {showAddDialog = false},
-            onConfirm = { titulo, descripcion ->
-                user?.let {
-                    TareaDTO(
-                        titulo = titulo,
-                        descripcion = descripcion,
-                        username = it
-                    )
-                }?.let { viewModel.agregarTarea(it, token) }
+            isAdmin = (userRol == "ADMIN"),
+            onConfirm = { titulo, descripcion, asignadoA ->
+                val userAsig = if (userRol == "ADMIN") asignadoA else user ?: ""
+                if (userAsig.isNotBlank()){
+                  viewModel.agregarTarea(
+                      TareaDTO(
+                      titulo = titulo,
+                      descripcion = descripcion,
+                      username = userAsig)
+                      , token
+                  )
+                }
                 showAddDialog = false
             }
         )

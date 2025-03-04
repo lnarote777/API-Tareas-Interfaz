@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
@@ -40,7 +41,6 @@ fun PortadaScreen(navController: NavController){
     var isLoading by remember { mutableStateOf(false) }
     var navigateTo by remember { mutableStateOf<String?>(null) }
 
-    // Manejo de navegación con un delay
     LaunchedEffect(navigateTo) {
         navigateTo?.let {
             isLoading = true
@@ -65,10 +65,11 @@ fun PortadaScreen(navController: NavController){
         ) {
             Image(
                 painter = painterResource(R.drawable.logo),
-                contentDescription = "Logo"
+                contentDescription = "Logo",
+                Modifier.size(400.dp)
             )
 
-            Spacer(modifier = Modifier.height(100.dp))
+            Spacer(modifier = Modifier.height(30.dp))
 
             if (isLoading) {
                 CircularProgressIndicator(color = colorResource(R.color.boton))

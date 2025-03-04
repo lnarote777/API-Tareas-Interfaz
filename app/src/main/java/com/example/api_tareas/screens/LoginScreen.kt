@@ -59,13 +59,14 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = viewMo
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
-        modifier = Modifier.fillMaxSize().background(color = colorResource(R.color.portada))
+        modifier = Modifier.fillMaxSize()
     ) { paddingValues ->
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
+                .background(color = colorResource(R.color.portada))
                 .padding(paddingValues)
         ) {
             Text("Inicia Sesión", fontSize = 55.sp, fontWeight = FontWeight.Bold)

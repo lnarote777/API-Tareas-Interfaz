@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,17 +32,8 @@ fun HeaderHome(navController: NavController, user: String?){
         modifier = Modifier
             .fillMaxWidth()
             .background(color = colorResource(R.color.topbar))
-            .height(50.dp)
+            .height(70.dp)
     ) {
-        Icon(imageVector = Icons.Default.ArrowBack,
-            contentDescription = "Atrás",
-            tint = Color.White,
-            modifier = Modifier
-                .padding(10.dp)
-                .size(50.dp)
-                .clickable { navController.navigate(route = AppScreen.LoginScreen.route) }
-        )
-
         Spacer(Modifier.weight(1f))
 
         Icon(imageVector = Icons.Default.AccountCircle,

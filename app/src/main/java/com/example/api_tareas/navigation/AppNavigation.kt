@@ -42,9 +42,12 @@ fun AppNavigation(){
             RegisterScreen(navController)
         }
 
-        composable(AppScreen.HomeScreen.route + "/{user}/{token}",
+        composable(AppScreen.HomeScreen.route + "/{user}/{userRol}/{token}",
             arguments = listOf(
                 navArgument(name = "user"){
+                type = NavType.StringType
+                },
+                navArgument(name = "userRol"){
                 type = NavType.StringType
                 },
                 navArgument(name = "token") {
@@ -56,7 +59,7 @@ fun AppNavigation(){
                 navController = navController,
                 user = it.arguments?.getString("user"),
                 token = it.arguments?.getString("token") ?: "",
-                viewModel = TareaViewModel()
+                userRol = it.arguments?.getString("userRol")
             )
         }
 

@@ -9,5 +9,6 @@
     <color name="portada">#D4D4D7</color>
     <color name="boton">#073456</color>
     <color name="topbar">#073456</color>
+    <color name="tarjeta">#7459719E</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

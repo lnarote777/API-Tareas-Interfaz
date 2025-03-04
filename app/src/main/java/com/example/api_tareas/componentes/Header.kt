@@ -14,6 +14,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,12 +30,12 @@ fun Header(navController: NavController){
         modifier = Modifier
             .fillMaxWidth()
             .background(color = colorResource(R.color.topbar))
-            .padding(vertical = 30.dp)
-            .height(100.dp)
+            .height(70.dp)
     ) {
         Icon(imageVector = Icons.Default.ArrowBack,
             contentDescription = "Atrás",
-            modifier = Modifier.clickable { navController.navigate(route = AppScreen.HomeScreen.route) }
+            tint = Color.White,
+            modifier = Modifier.clickable { navController.popBackStack() }
         )
     }
 }
