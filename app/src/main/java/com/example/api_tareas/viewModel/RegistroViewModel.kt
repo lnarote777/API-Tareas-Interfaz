@@ -10,10 +10,31 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel para gestionar el registro de un nuevo usuario.
+ * Se encarga de realizar la solicitud de registro a la API y manejar el estado de la interfaz de usuario.
+ */
 class RegistroViewModel: ViewModel() {
     private val _uiState = MutableStateFlow("")
     val uiState: StateFlow<String> = _uiState
 
+    /**
+     * Registra un nuevo usuario en la aplicación.
+     * Realiza la solicitud a la API con los datos del usuario y maneja el resultado del registro.
+     * Si el registro es exitoso, navega a la pantalla de inicio de sesión. Si hay errores, actualiza el estado con el mensaje correspondiente.
+     *
+     * @param nombre El nombre completo del usuario.
+     * @param username El nombre de usuario.
+     * @param municipio El municipio del usuario.
+     * @param provincia La provincia del usuario.
+     * @param email El correo electrónico del usuario.
+     * @param cp El código postal del usuario.
+     * @param pass La contraseña proporcionada por el usuario.
+     * @param passRepeat La confirmación de la contraseña.
+     * @param calle La calle donde reside el usuario.
+     * @param numero El número de la dirección del usuario.
+     * @param navController El controlador de navegación que permite navegar a otras pantallas.
+     */
     fun registerUser(
         nombre: String,
         username:String,
@@ -44,6 +65,7 @@ class RegistroViewModel: ViewModel() {
 
         viewModelScope.launch {
             try {
+                // Realiza la solicitud de registro a la API
                 val response = API.retrofitService.insertUser(registerRequest)
 
                 if (response.isSuccessful) {
@@ -55,7 +77,7 @@ class RegistroViewModel: ViewModel() {
                         _uiState.value = "Error: No se recibió un usuario válido"
                     }
                 } else {
-                    _uiState.value = "Error al registrar usuario: ${response.message()}"
+                    _uiState.value = "Error al registrar usuario"
                 }
             } catch (e: Exception) {
                 _uiState.value = "Error de conexión: ${e.message}"

@@ -23,6 +23,14 @@ import androidx.compose.ui.unit.sp
 import com.example.api_tareas.R
 import com.example.api_tareas.api.model.tarea.TareaDTO
 
+/**
+ * Composable que muestra un item de tarea en una tarjeta con información detallada de la tarea.
+ * Permite marcar la tarea como completada o eliminarla.
+ *
+ * @param tarea Objeto de tipo [TareaDTO] que contiene la información de la tarea a mostrar.
+ * @param onCompleteClick Función que se ejecuta cuando se hace clic en el botón de "Completar".
+ * @param onDeleteClick Función que se ejecuta cuando se hace clic en el botón de "Eliminar".
+ */
 @Composable
 fun TareaItem(
     tarea: TareaDTO,

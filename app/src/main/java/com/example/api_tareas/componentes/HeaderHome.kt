@@ -25,6 +25,15 @@ import com.example.api_tareas.R
 import com.example.api_tareas.navigation.AppScreen
 
 
+/**
+ * Composable que muestra una barra superior con un icono de usuario.
+ * Al hacer clic en el icono, navega a la pantalla de perfil del usuario.
+ *
+ * @param navController Controlador de navegación utilizado para gestionar las acciones de navegación.
+ * Se utiliza para navegar a la pantalla de perfil del usuario cuando se hace clic en el icono de usuario.
+ * @param user Nombre del usuario que se pasa a la ruta de la pantalla de perfil.
+ * Puede ser `null`, en cuyo caso no se navegaría a la pantalla de perfil.
+ */
 @Composable
 fun HeaderHome(navController: NavController, user: String?){
     Row(

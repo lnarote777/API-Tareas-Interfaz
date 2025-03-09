@@ -19,6 +19,17 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import com.example.api_tareas.R
 
+/**
+ * Composable que muestra un cuadro de diálogo para agregar una nueva tarea.
+ * Permite ingresar un título, descripción y, si el usuario es administrador, asignar la tarea a un usuario.
+ *
+ * @param showDialog Indica si el cuadro de diálogo debe ser visible o no.
+ * @param onDismiss Función que se ejecuta cuando el cuadro de diálogo se cierra sin confirmar.
+ * @param onConfirm Función que se ejecuta cuando el usuario confirma la creación de la tarea.
+ * Se le pasan el título, descripción y el usuario asignado.
+ * @param isAdmin Indica si el usuario tiene privilegios de administrador.
+ * Si es `true`, se habilita el campo para asignar la tarea a un usuario.
+ */
 @Composable
 fun AddTarea(
     showDialog: Boolean,

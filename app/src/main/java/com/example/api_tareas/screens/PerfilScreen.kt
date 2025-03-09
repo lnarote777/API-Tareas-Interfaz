@@ -26,6 +26,13 @@ import com.example.api_tareas.R
 import com.example.api_tareas.componentes.Header
 import com.example.api_tareas.navigation.AppScreen
 
+/**
+ * Pantalla de perfil del usuario donde se muestra información básica del usuario,
+ * opciones de configuración, y opciones para cerrar sesión y eliminar la cuenta.
+ *
+ * @param navController El controlador de navegación que permite navegar entre pantallas.
+ * @param user El nombre de usuario que se mostrará en el perfil. Puede ser nulo si no se proporciona.
+ */
 @Composable
 fun PerfilScreen(navController: NavController, user: String?){
     Column(modifier = Modifier.fillMaxWidth()) {

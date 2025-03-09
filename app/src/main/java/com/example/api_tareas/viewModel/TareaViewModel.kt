@@ -11,6 +11,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel para gestionar las tareas en la aplicación.
+ * Maneja las operaciones relacionadas con la obtención, adición, eliminación y marcado de tareas como completadas.
+ */
 class TareaViewModel: ViewModel() {
     private val _tareas = mutableStateOf<List<TareaDTO>>(emptyList())
     val tareas: State<List<TareaDTO>> = _tareas
@@ -22,6 +26,13 @@ class TareaViewModel: ViewModel() {
     val error: State<String?> = _error
 
 
+    /**
+     * Obtiene las tareas desde la API.
+     * Realiza una solicitud a la API para obtener la lista de tareas.
+     * En caso de éxito, actualiza la lista de tareas en el estado. Si ocurre un error, se guarda el mensaje de error.
+     *
+     * @param token El token de autorización que se usa para autenticar la solicitud.
+     */
     fun obtenerTareas(token: String) {
         viewModelScope.launch {
             _loading.value = true
@@ -43,6 +54,13 @@ class TareaViewModel: ViewModel() {
     }
 
 
+    /**
+     * Agrega una nueva tarea a la lista.
+     * Realiza una solicitud a la API para agregar una tarea y, si es exitosa, la agrega a la lista de tareas.
+     *
+     * @param tareaDTO El objeto `TareaDTO` que contiene los datos de la nueva tarea.
+     * @param token El token de autorización que se usa para autenticar la solicitud.
+     */
     fun agregarTarea(tareaDTO: TareaDTO, token: String) {
         viewModelScope.launch {
             try {
@@ -60,6 +78,13 @@ class TareaViewModel: ViewModel() {
         }
     }
 
+    /**
+     * Marca una tarea como completada.
+     * Realiza una solicitud a la API para actualizar el estado de la tarea a "COMPLETADA".
+     *
+     * @param id El ID de la tarea que se marcará como completada.
+     * @param token El token de autorización que se usa para autenticar la solicitud.
+     */
     fun completarTarea(id: Int, token: String) {
         viewModelScope.launch {
             try {
@@ -77,7 +102,13 @@ class TareaViewModel: ViewModel() {
         }
     }
 
-    // Función para eliminar una tarea
+    /**
+     * Elimina una tarea de la lista.
+     * Realiza una solicitud a la API para eliminar una tarea y actualiza la lista de tareas eliminando la tarea correspondiente.
+     *
+     * @param id El ID de la tarea que se eliminará.
+     * @param token El token de autorización que se usa para autenticar la solicitud.
+     */
     fun eliminarTarea(id: Int, token: String) {
         viewModelScope.launch {
             try {

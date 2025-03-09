@@ -22,13 +22,20 @@ import androidx.navigation.NavController
 import com.example.api_tareas.R
 import com.example.api_tareas.navigation.AppScreen
 
-
+/**
+ * Composable que muestra una barra superior con un icono de retroceso.
+ * Permite al usuario navegar hacia atrás en la pila de navegación.
+ *
+ * @param navController Controlador de navegación utilizado para gestionar las acciones de navegación.
+ * Se utiliza para volver a la pantalla anterior cuando el icono de retroceso es presionado.
+ */
 @Composable
 fun Header(navController: NavController){
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
+            .padding(top = 30.dp)
             .background(color = colorResource(R.color.topbar))
             .height(70.dp)
     ) {

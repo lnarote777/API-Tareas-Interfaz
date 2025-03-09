@@ -19,11 +19,14 @@ import com.example.api_tareas.viewModel.TareaViewModel
  * Configura la navegación de la aplicación utilizando el componente `NavHost` de Jetpack Compose.
  * Define las rutas para las pantallas de la aplicación y los argumentos necesarios para las transiciones entre ellas.
  *
- * El `NavHost` es el contenedor de navegación y el `navController` es el responsable de gestionar las transiciones entre pantallas.
+ * El `NavHost` es el contenedor de navegación que gestiona las transiciones entre las pantallas. El `navController`
+ * es el encargado de manejar el flujo de navegación.
  *
- * @see PortadaScreen Pantalla de bienvenida que se muestra al iniciar la aplicación.
- * @see LoginScreen Pantalla donde los usuarios pueden ingresar sus credenciales.
- * @see RegisterScreen Pantalla para que los usuarios se registren en la aplicación
+ * @see PortadaScreen Pantalla inicial con bienvenida.
+ * @see LoginScreen Pantalla para el inicio de sesión de usuarios.
+ * @see RegisterScreen Pantalla para el registro de nuevos usuarios.
+ * @see HomeScreen Pantalla principal, accesible después del login.
+ * @see PerfilScreen Pantalla donde el usuario puede ver y modificar su perfil.
  */
 @SuppressLint("ViewModelConstructorInComposable")
 @Composable

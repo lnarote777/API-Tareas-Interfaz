@@ -19,6 +19,18 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.api_tareas.R
 
+/**
+ * Composable que muestra un campo de texto para ingresar una contraseña, con la opción de alternar
+ * la visibilidad de la contraseña (mostrar u ocultar).
+ *
+ * @param password El valor actual de la contraseña ingresada.
+ * @param passVisible Booleano que indica si la contraseña es visible o está oculta.
+ * @param label La etiqueta que se muestra encima del campo de texto, indicando su propósito.
+ * @param valueChange Función que se ejecuta cuando el valor del campo de texto cambia.
+ * Recibe el nuevo valor de la contraseña como parámetro, permitiendo que se actualice el estado.
+ * @param onclick Función que se ejecuta cuando se hace clic en el ícono de visibilidad de la contraseña.
+ * Esto permite alternar entre mostrar u ocultar la contraseña.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFielPassword(password: String, passVisible: Boolean, label: String, valueChange: (String) -> Unit, onclick: () -> Unit){
