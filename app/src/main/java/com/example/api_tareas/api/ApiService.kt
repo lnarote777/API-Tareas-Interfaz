@@ -1,6 +1,5 @@
 package com.example.api_tareas.api
 
-import com.example.api_tareas.api.model.tarea.Tarea
 import com.example.api_tareas.api.model.tarea.TareaDTO
 import com.example.api_tareas.api.model.usuario.LoginResponse
 import com.example.api_tareas.api.model.usuario.UsuarioDTO
@@ -38,6 +37,15 @@ interface ApiService {
      */
     @POST("/usuarios/login")
     suspend fun login(@Body usuarioLoginDTO: UsuarioLoginDTO): Response<LoginResponse>
+
+    /**
+     * Obtiene una lista de todos los usuarios.
+     *
+     * @param token Token de autorización del usuario.
+     * @return Respuesta con la lista de usuarios.
+     */
+    @GET("/usuarios/lista-usuarios")
+    suspend fun getAllUsers(@Header("Authorization") token: String):Response<List<UsuarioDTO>>
 
     /**
      * Crea una nueva tarea.

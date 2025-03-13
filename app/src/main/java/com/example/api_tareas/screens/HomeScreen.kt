@@ -139,7 +139,8 @@ fun HomeScreen(navController: NavController, user: String?, userRol: String?, to
                   )
                 }
                 showAddDialog = false
-            }
+            },
+            token = token
         )
 
         // Diálogo para completar una tarea

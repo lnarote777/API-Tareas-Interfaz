@@ -1,7 +1,8 @@
 # API_Tareas
 
 ### Video demostración
-Enlace: https://drive.google.com/file/d/1FM0aWnnvLOfq6raTf4ksHO1Ay04HFc6A/view?usp=drive_link
+Enlace video sin cambios (video para diego, explicando todo): https://drive.google.com/file/d/1FM0aWnnvLOfq6raTf4ksHO1Ay04HFc6A/view?usp=drive_link
+Enlace video con los cambios pedidos: https://drive.google.com/file/d/1N61C9ijgn3fxMylv-5G684bP8V52AHif/view?usp=sharing
 
 ## Descripción de la aplicación
 Es una aplicación que permite la gestión de tareas con control de acceso basado en roles. Facilita la creación, edición, eliminación y consulta de tareas, asegurando la autenticación y autorización mediante JWT. La aplicación está diseñada para proporcionar seguridad en el manejo de usuarios y sus respectivas tareas.
